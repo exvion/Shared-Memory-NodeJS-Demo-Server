@@ -68,7 +68,7 @@ void ReadSHM(const FunctionCallbackInfo<Value> &args){
 
     char* shm = (char*) shmat(SHM_ID,(void*)0,0);
 
-    args.GetReturnValue().Set(String::NewFromUtf8(isolate, shm));
+    args.GetReturnValue().Set(String::NewFromUtf8(isolate, shm).ToLocalChecked());
 
     sem_post(semdes);
 
